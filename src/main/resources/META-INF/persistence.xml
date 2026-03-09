@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.0">
+
+    <persistence-unit name="tennis-match-scoreboard">
+
+        <class>ru.lkodos.entity.Player</class>
+
+        <properties>
+
+            <!-- JDBC -->
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="org.postgresql.Driver"/>
+
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:postgresql://localhost:5432/tms_db"/>
+<!--            <property name="jakarta.persistence.jdbc.url"-->
+<!--                      value="jdbc:h2:mem:tms_db;DB_CLOSE_DELAY=-1"/>-->
+
+            <property name="jakarta.persistence.jdbc.user"
+                      value="postgres"/>
+
+            <property name="jakarta.persistence.jdbc.password"
+                      value="1234"/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <property name="hibernate.hbm2ddl.auto"
+                      value="none"/>
+
+            <property name="hibernate.format_sql"
+                      value="true"/>
+
+            <property name="hibernate.connection.provider_class"
+                      value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+
+            <property name="hibernate.hikari.maximumPoolSize"
+                      value="10"/>
+
+            <property name="hibernate.hikari.minimumIdle"
+                      value="2"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

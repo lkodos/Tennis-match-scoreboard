@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "players", schema = "public")
+@Table(name = "players")
 public class Player {
 
     @Id
