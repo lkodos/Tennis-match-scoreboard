@@ -15,6 +15,7 @@ public class TransactionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction tr = em.getTransaction();
 
