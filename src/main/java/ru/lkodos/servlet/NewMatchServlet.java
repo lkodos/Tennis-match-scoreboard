@@ -14,7 +14,7 @@ import java.util.Map;
 @WebServlet(urlPatterns = {"/new-match"}, name = "NewMatchServlet")
 public class NewMatchServlet extends HttpServlet {
 
-    private final CreateNewMatchService service = new CreateNewMatchService();
+    private static final CreateNewMatchService service = new CreateNewMatchService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,6 +52,12 @@ public class NewMatchServlet extends HttpServlet {
         }
         if (p1Valid && p2Valid && player1Name.equals(player2Name)) {
             errors.put("equalsNames", "Имена игроков не должны совпадать");
+        }
+        if (!service.playerExists(player1Name)) {
+            errors.put("player1Exist", "Такой игрок уже существует");
+        }
+        if (!service.playerExists(player2Name)) {
+            errors.put("player2Exist", "Такой игрок уже существует");
         }
         return errors;
     }

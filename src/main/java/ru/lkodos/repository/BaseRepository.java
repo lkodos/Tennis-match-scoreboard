@@ -14,7 +14,7 @@ public abstract class BaseRepository<K extends Serializable, E> implements Repos
         getEntityManager().persist(entity);
     }
 
-    private EntityManager getEntityManager() {
+    protected EntityManager getEntityManager() {
         return EntityManagerHolder.get();
     }
 }
